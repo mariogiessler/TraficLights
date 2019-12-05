@@ -7,13 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Example extends JFrame {
-    private Dot green;
-    private Dot red;
-    private Dot orange;
+    private Dot green, red, orange;
 
     public Example() {
         this.setTitle("Example");
-        this.setDefaultCloseOperation(3);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(130, 400);
         red = new Example.Dot("red");
         orange = new Example.Dot("orange");
@@ -33,25 +31,25 @@ public class Example extends JFrame {
     }
 
     public void doIt() {
-        while(true) {
-            for(int i = 1; i < 5; ++i) {
+        while (true) {
+            for (int i = 1; i < 5; ++i) {
                 System.out.println(i);
-                switch(i) {
-                case 1:
-                    red.deleteColor();
-                    orange.deleteColor();
-                    green.setColor();
-                    break;
-                case 2:
-                    green.deleteColor();
-                    orange.setColor();
-                    break;
-                case 3:
-                    orange.deleteColor();
-                    red.setColor();
-                    break;
-                case 4:
-                    orange.setColor();
+                switch (i) {
+                    case 1:
+                        red.deleteColor();
+                        orange.deleteColor();
+                        green.setColor();
+                        break;
+                    case 2:
+                        green.deleteColor();
+                        orange.setColor();
+                        break;
+                    case 3:
+                        orange.deleteColor();
+                        red.setColor();
+                        break;
+                    case 4:
+                        orange.setColor();
                 }
 
                 repaint();
@@ -110,7 +108,7 @@ public class Example extends JFrame {
         }
 
         public void paintComponent(Graphics g) {
-            Graphics2D g2 = (Graphics2D)g;
+            Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             red.paint(g2);
             orange.paint(g2);
