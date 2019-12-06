@@ -56,7 +56,7 @@ public class Example extends JFrame {
 
                 try {
                     if (i != 2 && i != 4) {
-                        Thread.sleep(10000L);
+                        Thread.sleep(5000L);
                     } else {
                         Thread.sleep(1000L);
                     }
