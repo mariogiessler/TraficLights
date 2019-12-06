@@ -25,10 +25,10 @@ public class TrafficLights extends JFrame {
         this.setResizable(false);
     }
 
-    public static void main(String[] args) {
-        TrafficLights a = new TrafficLights();
-        a.doIt();
-    }
+//    public static void main(String[] args) {
+//        TrafficLights a = new TrafficLights();
+//        a.doIt();
+//    }
 
     public void doIt() {
         while (true) {
