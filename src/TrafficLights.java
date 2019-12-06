@@ -6,16 +6,16 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Traffic extends JFrame {
+public class TrafficLights extends JFrame {
     private Dot green, red, orange;
 
-    public Traffic() {
+    public TrafficLights() {
         this.setTitle("Example");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(130, 400);
-        red = new Traffic.Dot("red");
-        orange = new Traffic.Dot("orange");
-        green = new Traffic.Dot("green");
+        red = new TrafficLights.Dot("red");
+        orange = new TrafficLights.Dot("orange");
+        green = new TrafficLights.Dot("green");
         this.add(red);
         this.add(orange);
         this.add(green);
@@ -26,7 +26,7 @@ public class Traffic extends JFrame {
     }
 
     public static void main(String[] args) {
-        Traffic a = new Traffic();
+        TrafficLights a = new TrafficLights();
         a.doIt();
     }
 
