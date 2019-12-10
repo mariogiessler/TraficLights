@@ -41,6 +41,10 @@ public class Light extends JPanel {
         return isOn ? this.col : this.offColor;
     }
 
+    public void toggle() {
+        this.isOn = !this.isOn;
+    }
+
 
     public void set() {
         this.isOn = true;

@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class TrafficLight extends JFrame {
     private Light green, orange, red;
+    private Boolean blink;
 
     public TrafficLight() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -21,6 +22,11 @@ public class TrafficLight extends JFrame {
 
         setVisible(true);
         setResizable(false);
+        setFocusable(true);
+    }
+
+    public void blink() {
+        orange.toggle();
     }
 
     public void setLight(String color) {
