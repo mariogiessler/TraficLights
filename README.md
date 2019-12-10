@@ -1,4 +1,4 @@
 #TrafficLight
-Develloped on Dez 2019 by M. Giessler
-to create some Inheritance and Movings
+a TrafficLights Routine
+develloped on Dez 2019, 10th by M. Giessler
 
