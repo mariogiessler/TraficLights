@@ -1,8 +1,8 @@
 package controll;
 
-import Lights.CarLight;
-import Lights.TrafficLight;
-import Lights.WalkerLight;
+import lights.CarLight;
+import lights.TrafficLight;
+import lights.WalkerLight;
 
 import java.awt.*;
 

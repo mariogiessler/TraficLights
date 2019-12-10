@@ -1,4 +1,4 @@
-package Lights;
+package lights;
 
 import javax.swing.*;
 import java.awt.*;
