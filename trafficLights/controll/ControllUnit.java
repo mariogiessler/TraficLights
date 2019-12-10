@@ -81,11 +81,12 @@ public class ControllUnit {
             walker.killLight("green");
             car.killLight("red");
             car.killLight("green");
+            walker.repaint();
 
             while (true) {
                 car.blink();
                 car.repaint();
-                walker.repaint();
+
                 System.out.println("ATTENTION MODE!!!");
                 try {
                     Thread.sleep(1000);
