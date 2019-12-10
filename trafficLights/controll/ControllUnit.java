@@ -15,26 +15,7 @@ public class ControllUnit {
         walker = new WalkerLight();
         car.setLocation(new Point(400, 400));
         walker.setLocation(new Point(700, 450));
-        sequence();
-    }
-
-    private static void blink() {
-        // init for blinking
-        walker.killLight("red");
-        walker.killLight("green");
-        car.killLight("red");
-        car.killLight("green");
-
-        while (true) {
-            car.blink();
-            car.repaint();
-            walker.repaint();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        sequence(); // blank or 'false' for normal Mode / 'true' for blinking
     }
 
     private static void sequence() {
@@ -87,6 +68,30 @@ public class ControllUnit {
                 car.repaint();
                 walker.repaint();
 
+            }
+        }
+    }
+
+    private static void sequence(Boolean blink) {
+        if (!blink) {
+            sequence();
+        } else {
+            // init for blinking
+            walker.killLight("red");
+            walker.killLight("green");
+            car.killLight("red");
+            car.killLight("green");
+
+            while (true) {
+                car.blink();
+                car.repaint();
+                walker.repaint();
+                System.out.println("ATTENTION MODE!!!");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
