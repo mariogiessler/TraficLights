@@ -8,56 +8,72 @@ import java.awt.*;
 
 public class ControllUnit {
 
-    private static TrafficLight car, walker;
+    private static TrafficLight car1, walker2, car2, walker1;
 
     public static void start() {
-        car = new CarLight();
-        walker = new WalkerLight();
-        car.setLocation(new Point(400, 400));
-        walker.setLocation(new Point(700, 450));
+        car1 = new CarLight();
+        car2 = new CarLight();
+        walker2 = new WalkerLight();
+        walker1 = new WalkerLight();
+        car1.setLocation(new Point(400, 400));
+        walker1.setLocation(new Point(600, 450));
+        car2.setLocation(new Point(800, 400));
+        walker2.setLocation(new Point(1000, 450));
         sequence(); // blank or 'false' for normal Mode / 'true' for blinking
     }
 
     private static void sequence() {
-        car.setLight("red");
-        walker.setLight("green");
+        car1.setLight("red");
+        car2.setLight("green");
+        walker1.setLight("red");
+        walker2.setLight("green");
+
         while (true) {
 
             for (int i = 0; i <= 14; i++) {
 
                 switch (i) {
-
+                    case 4:
+                        car2.killLight("green");
+                        car2.setLight("orange");
+                        walker2.killLight("green");
+                        walker2.setLight("red");
+                        break;
                     case 5:
-                        walker.killLight("green");
-                        walker.setLight("red");
-                        System.out.println(" Walker: red, Car: red");
+                        car2.killLight("orange");
+                        car2.setLight("red");
                         break;
                     case 6:
-                        car.setLight("orange");
-                        System.out.println(" Walker: red, Car: orange/red");
+                        car1.setLight("orange");
                         break;
                     case 7:
-                        car.killLight("red");
-                        car.killLight("orange");
-                        car.setLight("green");
-                        System.out.println(" Walker: red, Car: green");
+                        car1.killLight("red");
+                        car1.killLight("orange");
+                        car1.setLight("green");
+                        walker1.killLight("red");
+                        walker1.setLight("green");
                         break;
 
+
+                    case 11:
+                        car1.killLight("green");
+                        car1.setLight("orange");
+                        walker1.killLight("green");
+                        walker1.setLight("red");
+                        break;
                     case 12:
-                        car.killLight("green");
-                        car.setLight("orange");
-                        System.out.println(" Walker: red, Car: orange");
+                        car1.killLight("orange");
+                        car1.setLight("red");
                         break;
                     case 13:
-                        car.killLight("orange");
-                        car.setLight("red");
-                        System.out.println(" Walker: red, Car: red");
-
+                        car2.setLight("orange");
                         break;
                     case 14:
-                        walker.killLight("red");
-                        walker.setLight("green");
-                        System.out.println(" Walker: green, Car: red");
+                        car2.killLight("red");
+                        car2.killLight("orange");
+                        car2.setLight("green");
+                        walker2.killLight("red");
+                        walker2.setLight("green");
                         break;
                 }
                 try {
@@ -65,8 +81,10 @@ public class ControllUnit {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                car.repaint();
-                walker.repaint();
+                car1.repaint();
+                car2.repaint();
+                walker2.repaint();
+                walker1.repaint();
 
             }
         }
@@ -77,19 +95,20 @@ public class ControllUnit {
             sequence();
         } else {
             // init for blinking
-            walker.killLight("red");
-            walker.killLight("green");
-            car.killLight("red");
-            car.killLight("green");
-            walker.repaint();
+            walker2.killLight("red");
+            walker2.killLight("green");
+            car1.killLight("red");
+            car1.killLight("green");
+            walker2.repaint();
 
             while (true) {
-                car.blink();
-                car.repaint();
+                car1.blink();
+                car2.blink();
+                car1.repaint();
+                car2.repaint();
 
-                System.out.println("ATTENTION MODE!!!");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
